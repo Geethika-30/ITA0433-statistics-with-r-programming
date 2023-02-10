@@ -1,0 +1,166 @@
+                  SAVEETHA SCHOOL OF ENGINEERING  
+                                     ITA0443
+                     Statistics with R programming
+ GEETHIKA MN
+192121108
+IT
+                                           LAB-1
+1.Write the Commands To Perform Basic Arithmetic In R.
+Program:
+a <- 19
+b <- 4
+add <- a + b
+sub = a - b
+multi = a * b
+division = a / b
+Integer_Division = a %/% b
+exponent = a ^ b
+modulus = a %% b
+print(paste("Addition of a and b:", add))
+print(paste("Subtracting Number a and b: ", sub))
+print(paste("Multiplication of a and b: ", multi))
+print(paste("Division of a and b: ", division))
+print(paste("Integer Division of a and b: ", Integer_Division))
+print(paste("Exponent of a and b: ", exponent))
+print(paste("Modulus of a and b: ", modulus))
+Output:
+> print(paste("Addition of a and b:", add))
+[1] "Addition of a and b: 23"
+> print(paste("Subtracting Number a and b: ", sub))
+[1] "Subtracting Number a and b:  15"
+> print(paste("Multiplication of a and b: ", multi))
+[1] "Multiplication of a and b:  76"
+> print(paste("Division of a and b: ", division))
+[1] "Division of a and b:  4.75"
+> print(paste("Integer Division of a and b: ", Integer_Division))
+[1] "Integer Division of a and b: 4 "
+> print(paste("Exponent of a and b: ", exponent))
+[1] "Exponent of a and b:  130321"
+> print(paste("Modulus of a and b: ", modulus))
+[1] "Modulus of a and b:  3"
+
+2.  Display a String on R Console.
+                 To display a string on R Console by using a cat() and print() function.The cat() function combines multiple items into a continuous print output.
+Program:
+mes<-"HELLO WORLD!"
+cat("R is Easy.\n",mes)
+Output:
+R is Easy.
+ HELLO WORLD!
+
+3. Declare Variables In R And Also Write The Commands For Retrieving The Value Of The   Stored Variables In R Console.
+The variables can be assigned values using leftward, rightward and equal to operator. The values of the variables can be printed using print() and cat() function. The cat() function combines multiple items into a continuous print output.
+Program:
+# Assignment using equal operator.
+var1= c(1,2,3,4)           
+
+# Assignment using leftward operator.
+var2<- c("learn","R")   
+
+# Assignment using rightward operator.   
+c(2,1) -> var3           
+
+print(var1)
+print(var2)
+print(var3
+Output:
+> print(var1)
+[1] 1 2 3 4
+> print(var2)
+[1] "learn" "R"    
+> print(var3)
+[1] 2 1
+
+4. Write R script to calculate the area of Rectangle.
+Program:
+height=5
+width=6
+area=height*width
+print(area)
+Output:
+[1] 30
+
+5.Write Commands In R Console To Determine The Type Of Variable
+                We can use of the typeof() and class() function to check the datatype of a program.
+Program:
+a<-2
+b<-"Set"
+c<-TRUE
+d<-as.integer(a)
+typeof(a)
+typeof(b)
+typeof(c)
+typeof(d)
+Output:
+> typeof(a)
+[1] "double"
+> typeof(b)
+[1] "character"
+> typeof(c)
+[1] "logical"
+> typeof(d)
+[1] "integer"
+
+6.Enumerate The Process To Check Whether A Given Input Is Numeric , Integer , Double, Complex  in  R.
+Program: for integer
+var=readline();
+var=as.integer(var)
+typeof(var)
+Output:
+> var=readline();
+125
+> var=as.integer(var)
+> typeof(var)
+[1] "integer"
+
+For numeric
+var=readline();
+var=as.numeric(var)
+typeof(var)
+Output:
+> var=readline();
+2.5
+> var=as.numeric(var)
+> typeof(var)
+[1] "double"
+
+For complex
+var=readline();
+var=as.complex(var)
+typeof(var)
+
+Output:
+> var=readline();
+3+4i
+> var=as.complex(var)
+> typeof(var)
+[1] "complex"
+
+7. Illustration of Vector Arithmetic.
+Program:
+> vec1+vec2
+[1]  4  7  7  6 11
+> vec1-vec2
+[1] -2 -3 -1  2 -1
+> vec1*vec2
+[1]  3 10 12  8 30
+> vec1/vec2
+[1] 0.3333 0.4000 0.7500 2.0000 0.8333
+
+8. Write an R Program to Take Input From User.
+Input name as “Jack” and age as 17.
+The program should display the output as
+“Hai , Jack next year you will be 18 years old”
+Program:
+name <- readline(prompt="Enter name: ")
+age <- readline(prompt="Enter age: ")
+age <- as.integer(age)
+print(paste("Hai,",name,"next year you will be",age+1,"years old."))
+Output:
+> name <- readline(prompt="Enter name: ")
+Enter name: Jack
+> age <- readline(prompt="Enter age: ")
+Enter age: 17
+> age <- as.integer(age)
+> print(paste("Hai,",name,"next year you will be",age+1,"years old."))
+[1] "Hai, Jack next year you will be 18 years old."
