@@ -1,0 +1,416 @@
+SAVEETHA SCHOOL OF ENGINEERING
+                      ITA 0443 - STATISTICS WITH R PROGRAMMING FOR REAL TIME PROBLEMS
+                                         DAY 2 – LAB
+GEETHIKA MN
+192121108
+IT
+               IMPLEMENTATION OF VECTOR RECYCLING, APPLY FAMILY & RECURSION
+1. Demonstrate Vector Recycling in R.
+code:
+a <- c(10, 20, 30, 40, 50)
+b <- c(1, 3)
+result <- a + b
+print(result)
+output:
+> print(result)
+[1] 11 23 31 43 51
+2. Demonstrate the usage of apply function in R
+code:
+df <- data.frame(x = 1:4, y = 5:8, z = 10:13)
+df
+output:
+ df <- data.frame(x = 1:4, y = 5:8, z = 10:13)
+3. Demonstrate the usage of lapply function in R
+Code:
+a <- list(A = c(8, 9, 7, 5),
+          B = data.frame(x = 1:5, y = c(5, 1, 0, 2, 3)))
+a
+output:
+> a
+[1] 10 20 30 40 50
+4. Demonstrate the usage of sapply function in R
+code:
+sapply(1:4, sqrt)
+# 1.000000 1.414214 1.732051 2.000000
+
+# Equivalent to:
+sapply(1:4, function(i) sqrt(i)) 
+
+# Also equivalent to:
+my_fun <- function(i) {
+    sqrt(i)
+}
+
+sapply(1:4, my_fun)
+output:
+[1] 1.000000 1.414214 1.732051 2.000000
+5. Demonstrate the usage of tapply function in R
+code:
+set.seed(2)
+
+data_set <- data.frame(price = round(rnorm(25, sd = 10, mean = 30)),
+                       type = sample(1:4, size = 25, replace = TRUE),
+                       store = sample(paste("Store", 1:4),
+                                      size = 25, replace = TRUE))
+
+head(data_set)
+output:
+  price type   store
+1    21    2 Store 2
+2    32    3 Store 3
+3    46    4 Store 4
+4    19    3 Store 4
+5    29    1 Store 4
+6    31    3 Store 4
+6. Demonstrate the usage of mapply function in R
+code:
+mapply(rep, 1:3, times=5)
+output:
+> mapply(rep, 1:3, times=5)
+     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    1    2    3
+[3,]    1    2    3
+[4,]    1    2    3
+[5,]    1    2    3
+
+7. Sum of Natural Numbers using Recursion
+code:
+#include <stdio.h>
+
+int addNumbers(int n);
+
+int main() {
+
+  int num;
+  printf("Enter a positive integer: ");
+  scanf("%d", &num);
+  printf("Sum = %d", addNumbers(num));
+  return 0;
+}
+
+int addNumbers(int n) {
+  if (n != 0)
+    return n + addNumbers(n - 1);
+  else
+    return n;
+}
+output:
+Enter a positive integer: 20
+Sum = 210
+8. Write a program to generate Fibonacci sequence using Recursion in R
+code:
+recurse_fibonacci <- function(n) {
+  if(n <= 1) {
+    return(n)
+  } else {
+    return(recurse_fibonacci(n-1) + recurse_fibonacci(n-2))
+  }
+}
+# take input from the user
+nterms = as.integer(readline(prompt="How many terms? "))
+# check if the number of terms is valid
+if(nterms <= 0) {
+  print("Plese enter a positive integer")
+} else {
+  print("Fibonacci sequence:")
+  for(i in 0:(nterms-1)) {
+    print(recurse_fibonacci(i))
+  }
+}
+output:
+How many terms? 9
+[1] "Fibonacci sequence:"
+[1] 0
+[1] 1
+[1] 1
+[1] 2
+[1] 3
+[1] 5
+[1] 8
+[1] 13
+[1] 21
+9. Write a program to find factorial of a number in R using recursion.
+code:
+recur_factorial <- function(n) {
+  if(n <= 1) {
+    return(1)
+  } else { 
+    return(n * recur_factorial(n-1))
+  }
+}
+output:
+> recur_factorial(5)
+[1] 120
+Exercise 1
+Consider two vectors: x=seq(1,43,along.with=Id)
+y=seq(-20,0,along.with=Id)
+Create a data frame ‘df’ as shown below.
+&gt;df
+code:
+Id=rep(c(1,2,3,4),each=3)
+Letter=rep(letters[1:3],4)
+x=seq(1,43,along.with=Id)
+y=seq(-20,0,along.with=Id)
+df=data.frame(Id,Letter,x,y)
+df
+output:
+  x y  z
+1 1 5 10
+2 2 6 11
+3 3 7 12
+4 4 8 13
+exercise-2
+Using the data frame ‘df’ in Exercise1, Construct the following data frame. Id
+code:
+Id=rep(c(1,2,3,4),each=3)
+Letter=rep(letters[1:3],4)
+x=seq(1,43,along.with=Id)
+y=seq(-20,0,along.with=Id)
+df=data.frame(Id,Letter,x,y)
+reshape(df,timevar='Letter',idvar='Id',direction='wide')
+df
+output:
+   Id Letter         x          y
+1   1      a  1.000000 -20.000000
+2   1      b  4.818182 -18.181818
+3   1      c  8.636364 -16.363636
+4   2      a 12.454545 -14.545455
+5   2      b 16.272727 -12.727273
+6   2      c 20.090909 -10.909091
+7   3      a 23.909091  -9.090909
+8   3      b 27.727273  -7.272727
+9   3      c 31.545455  -5.454545
+10  4      a 35.363636  -3.636364
+11  4      b 39.181818  -1.818182
+12  4      c 43.000000   0.000000
+Exercise 3
+Create two data frame df1 and df2:
+&gt; df1
+Id Age
+1 1 14
+2 2 12
+3 3 15
+4 4 10
+&gt; df2
+Id Sex Code
+1 1 F a
+2 2 M b
+3 3 M c
+4 4 F d
+From df1 and df2 create M:
+&gt;M
+Id Age Sex Code
+1 1 14 F a
+2 2 12 M b
+3 3 15 M c 4 4 10 F d
+code:
+Id=c(1,2,3,4)
+Age=c(14,12,15,10)
+Sex=c('F','M','M','F')
+Code=c('a','b','c','d')
+df1=data.frame(Id,Age)
+df2=data.frame(Id,Sex,Code)
+M=merge(df1,df2,by='Id')
+M
+output;
+  Id Age Sex Code
+1  1  14   F    a
+2  2  12   M    b
+3  3  15   M    c
+4  4  10   F    d
+Exercise 4
+Create a data frame df3:
+&gt; df3 id2
+score 1 4
+100
+2 3 98
+3 2 94
+4 1 99
+From M (used in Exercise-3) and df3 create N:
+Id Age Sex Code score
+1 1 14 F a 99
+2 2 12 M b 94
+
+3 3 15 M c 98 4 4 10 F d 100
+code:
+Id=c(1,2,3,4)
+Age=c(14,12,15,10)
+Sex=c('F','M','M','F')
+Code=c('a','b','c','d')
+df1=data.frame(Id,Age)
+df2=data.frame(Id,Sex,Code)
+M=merge(df1,df2,by='Id')
+id2=seq(4,1)
+score=c(100,98,94,99)
+df3=data.frame(id2,score)
+N=merge(M,df3,by.x='Id',by.y='id2')
+N
+output:
+ Id Age Sex Code score
+1  1  14   F    a    99
+2  2  12   M    b    94
+3  3  15   M    c    98
+4  4  10   F    d   100
+Exercise 5
+Consider the previous one data frame N:
+1) Remove the variables Sex and Code
+2) From N, create a data frame:
+code:
+id2=seq(4,1)
+score=c(100,98,94,99)
+df3=data.frame(id2,score)
+N=merge(M,df3,by.x='Id',by.y='id2')
+N[,c("Sex")]=NULL
+N[,c("Code")]=NULL
+N
+OUTPUT:
+  Id Age score
+1  1  14    99
+2  2  12    94
+3  3  15    98
+4  4  10   100
+Exercise 6
+For this exercise, we’ll use the (built-in) dataset trees.
+a) Make sure the object is a data frame, if not change it to a data frame.
+b) Create a new data frame A:
+&gt;A
+Girth Height Volume
+mean_tree 13.24839 76 30.17097
+min_tree 8.30000 63 10.20000
+max_tree 20.60000 87 77.00000
+sum_tree 410.70000 2356 935.30000
+CODE:
+
+mean_tree=apply(trees,2,mean)
+max_tree=apply(trees,2,max)
+min_tree=apply(trees,2,min)
+sum_tree=apply(trees,2,sum)
+A=data.frame(mean_tree,min_tree,max_tree,sum_tree)
+A=t(A)
+A
+OUTPUT:
+              Girth Height    Volume
+mean_tree  13.24839     76  30.17097
+min_tree    8.30000     63  10.20000
+max_tree   20.60000     87  77.00000
+sum_tree  410.70000   2356 935.30000
+
+EXERCISE:7
+#Consider the data frame A:
+
+#1)Order the entire data frame by the first column. 
+CODE:
+
+mean_tree=apply(trees,2,mean)
+max_tree=apply(trees,2,max)
+min_tree=apply(trees,2,min)
+sum_tree=apply(trees,2,sum)
+A=data.frame(mean_tree,min_tree,max_tree,sum_tree)
+A=t(A)
+A
+
+A[order(A[,1]),]
+#2)Rename the row names as follows: mean, min, max, tree
+CODE:
+
+row.names(A)=c('mean','min','max','sum')
+
+row.names(A)=c('mean','min','max','sum')
+OUTPUT:
+
+              Girth Height    Volume
+min_tree    8.30000     63  10.20000
+mean_tree  13.24839     76  30.17097
+max_tree   20.60000     87  77.00000
+sum_tree  410.70000   2356 935.30000
+Exercise 9
+Create a data frame XY
+X=c(1,2,3,1,4,5,2)
+Y=c(0,3,2,0,5,9,3)
+&gt; XY
+X Y
+1 1 0
+2 2 3
+3 3 2
+4 1 0
+5 4 5
+6 5 9
+7 2 3
+1) look at duplicated elements using a provided R function.
+2) keep only the unique lines on XY using a provided R function.
+CODE:
+
+X=c(1,2,3,1,4,5,2)
+Y=c(0,3,2,0,5,9,3)
+XY=data.frame(X,Y)
+
+duplicated(XY)
+OUTPUT:
+> duplicated(XY)
+[1] FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE
+Exercise 10
+Use the (built-in) dataset Titanic.
+a) Make sure the object is a data frame, if not change it to a data frame.
+b) Define a data frame with value 1st in Class variable, and value NO in Survived variable
+and variables Sex, Age and Freq.
+Sex Age Freq
+1 Male Child 0
+5 Female Child 0
+9 Male Adult 118
+13 Female Adult 4
+CODE:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                      CREATION AND MANIPULATION OF DATAFRAMES IN R
+Exercise 1
+Consider two vectors: x=seq(1,43,along.with=Id)
+y=seq(-20,0,along.with=Id)
+Create a data frame ‘df’ as shown below.
+&gt;df
+CODE:
+Id=rep(c(1,2,3,4),each=3)
+Letter=rep(letters[1:3],4)
+x=seq(1,43,along.with=Id)
+y=seq(-20,0,along.with=Id)
+df=data.frame(Id,Letter,x,y)
+df
+OUTPUT:
+   Id Letter         x          y
+1   1      a  1.000000 -20.000000
+2   1      b  4.818182 -18.181818
+3   1      c  8.636364 -16.363636
+4   2      a 12.454545 -14.545455
+5   2      b 16.272727 -12.727273
+6   2      c 20.090909 -10.909091
+7   3      a 23.909091  -9.090909
+8   3      b 27.727273  -7.272727
+9   3      c 31.545455  -5.454545
+10  4      a 35.363636  -3.636364
+11  4      b 39.181818  -1.818182
+12  4      c 43.000000   0.000000
+
+
+Exercise 2
+Using the data frame ‘df’ in Exercise1, Construct the following data frame. Id
+x.ay.ax.by.bx.cy.c 1 1 1.00000 -20.000000 4.818182 -18.181818
+8.636364 -16.363636 4 2 12.45455 -14.545455 16.272727 -12.727273
+20.090909 -10.909091 7 3 23.90909 -9.090909 27.727273 -7.272727
+31.545455 -5.454545 10 4 35.36364 -3.636364 39.181818 -1.818182
+43.000000 0.000000
+code:
+
+
