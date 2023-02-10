@@ -1,0 +1,222 @@
+SAVEETHA SCHOOL OF ENGINEERING
+           STATISTICS WITH R PROGRAMMING   
+
+               lab assessment-1
+GEETHIKA MN
+192121108
+
+1. Write a R program to take input from the user (name and age) and display
+the values. Also print the version of R installation.
+code:
+name = readline(prompt="Input your name: ")
+age =  readline(prompt="Input your age: ")
+print(paste("My name is",name, "and I am",age ,"years old."))
+print(R.version.string)
+input:
+name:geethika
+age:20
+output:
+[1] "My name is geethika and I am 20 years old."
+[1] "R version 4.2.2 (2022-10-31 ucrt)"
+> 
+2. Write a R program to get the details of the objects in memory.
+code:
+name = "python"; 
+n1 =  10; 
+n2 =  0.5
+nums = c(10, 20, 30, 40, 50, 60)
+print(ls())
+print("Details of the objects in memory:")
+print(ls.str())
+output:
+rec : function (s, e, i, n)  
+s :  num 55
+v :  NULL
+w :  num [1:10] 63 81 56 91 47 57 76 72 62 48
+3. Write a R program to create a sequence of numbers from 20 to 50 and find
+the mean of numbers from 20 to 60 and sum of numbers from 51 to 91.
+code:
+rint("Sequence of numbers from 20 to 50:")
+print(seq(20,50))
+print("Mean of numbers from 20 to 60:")
+print(mean(20:60))
+print("Sum of numbers from 51 to 91:")
+print(sum(51:91))
+output:
+> print(sum(51:91))
+[1] 2911
+4. Write a R program to create a vector which contains 10 random integer
+values between -50 and +50.
+code:
+v = sample(-50:50, 10, replace=TRUE)
+print("Content of the vector:")
+print("10 random integer values between -50 and +50:")
+print(v)
+output:
+> v = sample(-50:50, 10, replace=TRUE)
+5. Write a R program to get the first 10 Fibonacci numbers.
+code:
+Fibonacci <- numeric(10)
+Fibonacci[1] <- Fibonacci[2] <- 1
+for (i in 3:10) Fibonacci[i] <- Fibonacci[i - 2] + Fibonacci[i - 1]
+print("First 10 Fibonacci numbers:")
+print(Fibonacci)
+output:
+[1] "First 10 Fibonacci numbers:"
+ [1]  1  1  2  3  5  8 13 21 34 55 
+6. Write a R program to get all prime numbers up to 
+a given number (based on the sieve of Eratosthenes).
+code:
+prime_numbers <- function(n) {
+  if (n >= 2) {
+    x = seq(2, n)
+    prime_nums = c()
+    for (i in seq(2, n)) {
+      if (any(x == i)) {
+        prime_nums = c(prime_nums, i)
+        x = c(x[(x %% i) != 0], i)
+      }
+    }
+    return(prime_nums)
+  }
+  else 
+  {
+    stop("Input number should be at least 2.")
+  }
+} 
+prime_numbers(12)
+output:
+> prime_numbers(12)
+[1]  2  3  5  7 11
+7. Write a R program to print the numbers from 1 to 100 and print &quot;Fizz&quot; for
+multiples of 3, print &quot;Buzz&quot; for multiples of 5, and print &quot;FizzBuzz&quot; for multiples
+of both.
+code:
+for (n in 1:100) {
+  if (n %% 3 == 0 & n %% 5 == 0) {print("FizzBuzz")}
+  else if (n %% 3 == 0) {print("Fizz")}
+  else if (n %% 5 == 0) {print("Buzz")}
+  else print(n)
+}
+output:
+[1] 1
+[1] 2
+[1] "Fizz"
+[1] 4
+[1] "Buzz"
+[1] "Fizz"
+[1] 7
+[1] 8
+[1] "Fizz"
+[1] "Buzz"
+[1] 11
+[1] "Fizz"
+[1] 13
+[1] 14
+[1] "FizzBuzz"
+[1] 16
+[1] 17
+[1] "Fizz"
+[1] 19
+[1] "Buzz"
+[1] "Fizz"
+[1] 22
+[1] 23
+[1] "Fizz"
+[1] "Buzz"
+[1] 26
+[1] "Fizz"
+[1] 28
+[1] 29
+[1] "FizzBuzz"
+[1] 31
+[1] 32
+[1] "Fizz"
+[1] 34
+[1] "Buzz"
+[1] "Fizz"
+[1] 37
+[1] 38
+[1] "Fizz"
+[1] "Buzz"
+[1] 41
+[1] "Fizz"
+[1] 43
+[1] 44
+[1] "FizzBuzz"
+[1] 46
+[1] 47
+[1] "Fizz"
+[1] 49
+[1] "Buzz"
+[1] "Fizz"
+[1] 52
+[1] 53
+[1] "Fizz"
+[1] "Buzz"
+[1] 56
+[1] "Fizz"
+[1] 58
+[1] 59
+[1] "FizzBuzz"
+[1] 61
+[1] 62
+[1] "Fizz"
+[1] 64
+[1] "Buzz"
+[1] "Fizz"
+[1] 67
+[1] 68
+[1] "Fizz"
+[1] "Buzz"
+[1] 71
+[1] "Fizz"
+[1] 73
+[1] 74
+[1] "FizzBuzz"
+[1] 76
+[1] 77
+[1] "Fizz"
+[1] 79
+[1] "Buzz"
+[1] "Fizz"
+[1] 82
+[1] 83
+[1] "Fizz"
+[1] "Buzz"
+[1] 86
+[1] "Fizz"
+[1] 88
+[1] 89
+[1] "FizzBuzz"
+[1] 91
+[1] 92
+[1] "Fizz"
+[1] 94
+[1] "Buzz"
+[1] "Fizz"
+[1] 97
+[1] 98
+[1] "Fizz"
+[1] "Buzz"
+8. Write a R program to extract first 10 english letter in lower case and last 10
+letters in upper case and extract letters between 22 nd  to 24 th  letters in upper
+case.
+code:
+print("First 10 letters in lower case:")
+t = head(letters, 10)
+print(t)
+print("Last 10 letters in upper case:")
+t = tail(LETTERS, 10)
+print(t)
+print("Letters between 22nd to 24th letters in upper case:")
+e = tail(LETTERS[22:24])
+print(t)
+output:
+> source("~/.active-rstudio-document")
+[1] "First 10 letters in lower case:"
+ [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j"
+[1] "Last 10 letters in upper case:"
+ [1] "Q" "R" "S" "T" "U" "V" "W" "X" "Y" "Z"
+[1] "Letters between 22nd to 24th letters in upper case:"
+ [1] "Q" "R" "S" "T" "U" "V" "W" "X" "Y" "Z"
