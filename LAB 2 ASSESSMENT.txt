@@ -1,0 +1,169 @@
+SAVEETHA SCHOOL OF ENGINEERING
+ITA 0443 - STATISTICS WITH R PROGRAMMING FOR REAL TIME PROBLEM
+
+DAY 2 – LAB ASSESSMENT
+GEETHIKA MN
+192121108
+IT
+
+
+1.Write a R program to create an array of two 3x3 matrices each with 3 rows and 3 columns from
+two given two vectors. Print the second row of the second matrix of the array and the element in
+the 3rd row and 3rd column of the 1st matrix.
+vector1 <- c(1,2,3,4,5,6,7,8,9)
+vector2 <- c(9,8,7,6,5,4,3,2,1)
+
+matrix1 <- matrix(vector1, nrow = 3, ncol = 3, byrow = TRUE)
+matrix2 <- matrix(vector2, nrow = 3, ncol = 3, byrow = TRUE)
+matrix1
+matrix2
+array_of_matrices <- array(c(matrix1, matrix2), dim = c(3,3,2))
+print(array_of_matrices[2, , 2])
+print(array_of_matrices[3, 3, 1])
+2. Write a R program to combine three arrays so that the first row of the first array is followed by
+the first row of the second array and then first row of the third array.
+array1 <- matrix(c(1, 2, 3, 4), nrow = 2, ncol = 2)
+
+array2 <- matrix(c(5, 6, 7, 8), nrow = 2, ncol = 2)
+array1
+array2
+
+result <- rbind(array1[1, ], array2[1, ])
+
+print(result)
+3. Write a R program to create an array using four given columns, three given rows, and two
+given tables and display the content of the array.
+col1 <- c(1, 2, 3, 4)
+col2 <- c(5, 6, 7, 8)
+col3 <- c(9, 10, 11, 12)
+col4 <- c(13, 14, 15, 16)
+
+row1 <- c(col1[1], col2[1], col3[1], col4[1])
+row2 <- c(col1[2], col2[2], col3[2], col4[2])
+row3 <- c(col1[3], col2[3], col3[3], col4[3])
+
+table1 <- rbind(row1, row2)
+table2 <- rbind(row3)
+
+result <- rbind(table1, table2)
+
+print(result)
+
+4. Write a R program to create a two-dimensional 5x3 array of sequence of even integers greater
+than
+even_numbers <- seq(52, 70, by = 2)
+result <- matrix(even_numbers, nrow = 5, ncol = 3, byrow = TRUE)
+
+print(result)
+
+Use Below Data frame from question 5 to 9
+exam_data = data.frame(
+name = c('Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin',
+'Jonas'),
+score = c(12.5, 9, 16.5, 12, 9, 20, 14.5, 13.5, 8, 19),
+attempts = c(1, 3, 2, 3, 2, 3, 1, 1, 2, 1),
+qualify = c('yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes')
+)
+5. Write a R program to extract 3rd and 5th rows with 1st and 3rd columns from a given data frame
+exam_data = data.frame(
+name = c('Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin',
+'Jonas'),
+score = c(12.5, 9, 16.5, 12, 9, 20, 14.5, 13.5, 8, 19),
+attempts = c(1, 3, 2, 3, 2, 3, 1, 1, 2, 1),
+qualify = c('yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes')
+)
+
+exam_data
+result <- exam_data[c(3,5), c(1,3)]
+print(result
+6. Write a R program to add a new column named country in a given data frame
+Country<-c("USA","USA","USA","USA","UK","USA","USA","India","USA","USA")
+exam_data = data.frame(
+name = c('Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin',
+'Jonas'),
+score = c(12.5, 9, 16.5, 12, 9, 20, 14.5, 13.5, 8, 19),
+attempts = c(1, 3, 2, 3, 2, 3, 1, 1, 2, 1),
+qualify = c('yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes')
+)
+exam_data
+
+exam_data<-
+cbind(exam_data,country=c("USA","USA","USA","USA","UK","USA","USA","INDIA","USA
+","USA"))
+print(exam_data)
+7. Write a R program to add new row(s) to an existing data frame
+new_exam_data = data.frame(name = c('Robert', 'Sophia'),score = c(10.5, 9), attempts = c(1,
+3),qualify = c('yes', 'no'))
+exam_data = data.frame(
+name = c('Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin',
+'Jonas'),
+score = c(12.5, 9, 16.5, 12, 9, 20, 14.5, 13.5, 8, 19),
+attempts = c(1, 3, 2, 3, 2, 3, 1, 1, 2, 1),
+qualify = c('yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes')
+)
+exam_data
+new_exam_data = data.frame(name = c('Robert', 'Sophia'),score = c(10.5, 9), attempts = c(1,
+3),qualify = c('yes', 'no'))
+
+exam_data<- rbind(exam_data, new_exam_data)
+print(exam_data)
+8. Write a R program to sort a given data frame by name and score
+exam_data = data.frame(
+name = c('Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin',
+'Jonas'),
+score = c(12.5, 9, 16.5, 12, 9, 20, 14.5, 13.5, 8, 19),
+attempts = c(1, 3, 2, 3, 2, 3, 1, 1, 2, 1),
+qualify = c('yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes')
+)
+exam_data
+exam_data<-exam_data[order(exam_data$name, exam_data$score), ]
+print(exam_data)
+9. Write a R program to save the information of a data frame in a file and display the
+information of the file.
+10. Write a R program to call the (built-in) dataset airquality. Check whether it is a data frame or
+not? Order the entire data frame by the first and second column. remove the variables 'Solar.R'
+and 'Wind' and display the data frame.
+ata("airquality")
+if (is.data.frame(airquality)) {
+print("airquality is a data frame")
+} else {
+print("airquality is not a data frame")
+}
+airquality <- airquality[order(airquality[,1], airquality[,2]),]
+airquality <- airquality[ , !(names(airquality) %in% c("Solar.R", "Wind"))]
+print(airquality)
+11. Write a R program to create a factor corresponding to height of women data set , which
+inbuild in R, contains height and weights for a sample of women.
+
+data(women)
+women$height_factor <- cut(women$height, c(58, 63, 68, 73), labels = c("Short", "Medium",
+"Tall"), right = TRUE)
+print(women$height_factor)
+12. Write a R program to extract the five of the levels of factor created from a random sample
+from the LETTERS (Part of the base R distribution.)
+letters_factor <- factor(sample(LETTERS, 25, replace = TRUE))
+levels_factor <- levels(letters_factor)
+result <- levels_factor[sample(1:length(levels_factor), 5, replace = TRUE)]
+
+print(result)
+13. Iris dataset is a very famous dataset in almost all data mining, machine learning courses, and
+it has been an R build-in dataset. The dataset consists of 50 samples from each of three species of
+Iris flowers (Iris setosa, Iris virginica and Iris versicolor). Four features(variables) were
+measured from each sample, they are the length and the width of sepal and petal, in centimetres.
+Perform the following EDA steps .
+(i)Find dimension, Structure, Summary statistics, Standard Deviation of all features.
+(ii)Find mean and standard deviation of features groped by three species of Iris flowers (Iris
+setosa, Iris virginica and Iris versicolor)
+(iii)Find quantile value of sepal width and length
+(iV)create new data frame named iris1 which have a new column name Sepal.Length.Cate that
+categorizes “Sepal.Length” by quantile
+(V) Average value of numerical varialbes by two categorical variables: Species and
+Sepal.Length.Cate:
+(vi) Average mean value of numerical varialbes by Species and Sepal.Length.Cate
+
+(vii)Create Pivot Table based on Species and Sepal.Length.Cate.
+14.Titanic Casualties – Use the standard ‘Titanic’ dataset which is part of R Base to answer
+the following questions.
+(i). Use an appropriate apply function to get the sum of males vs females aboard.
+(ii). Get a table with the sum of survivors vs sex.
+(iii). Get a table with the sum of passengers by sex and age
